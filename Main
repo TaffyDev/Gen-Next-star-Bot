@@ -1,0 +1,35 @@
+// Define The Package And Variables (BOT IS NOT DONE YET) (BOT IS USING BOTGHOST.COM RN)
+const {  Discord, Client, Intents, Collection, MessageEmbed, MessageButton, MessageActionRow, Interaction, ClientVoiceManager, Role, MessageAttachment } = require("discord.js");
+
+
+let prefix = "!!"; // Define the Bot's Prefix For Commands
+
+
+//Get's The Client
+const client = new Client({ 
+    intents: 32767,
+  }); 
+
+
+  client.on('ready', () => { // sends the message into the console when the bot is online
+    console.log(`${client.user.username} is now online and is now functioning!`)
+  })
+
+
+  // Basic Ping Command
+  client.on('message', message => {
+    if(message.content === `${prefix}ping`) { // When the user Puts The prefix then ping it will define it as a command
+        let embed = new MessageEmbed() // the command embed builder
+        .setDescription(`My Ping Is ${client.ws.ping}ms`) // ${client.ws.ping} will display the bot's ping
+         .setColor(`RANDOM`) // The embed color - RANDOM will make it randomizable
+
+        message.reply({embeds: [embed]}) // replies to the user messsage with the embed provides
+
+    }
+  }) // close functions
+
+
+
+
+
+  client.login(`DISCORD BOT TOKEN`) // logs into the bot
